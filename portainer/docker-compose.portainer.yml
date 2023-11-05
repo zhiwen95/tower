@@ -9,3 +9,4 @@ services:
     volumes:
       - ${PORTAINER_VOLUME:-.}/data:/data
       - /var/run/docker.sock:/var/run/docker.sock
+    cpuset: ${CPUSET}

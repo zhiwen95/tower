@@ -6,3 +6,4 @@ services:
     command: -s
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
+    cpuset: ${CPUSET}

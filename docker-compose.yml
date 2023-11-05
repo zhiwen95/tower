@@ -4,3 +4,5 @@ include:
   - path: 'iperf3/docker-compose.iperf3.yml'
   - path: 'librespeed/docker-compose.librespeed.yml'
   - path: 'portainer/docker-compose.portainer.yml'
+  - path: 'nginx-proxy-manager/docker-compose.nginx-proxy-manager.yml'
+  - path: 'flexget/docker-compose.flexget.yml'
