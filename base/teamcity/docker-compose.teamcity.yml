@@ -12,15 +12,14 @@ services:
       - ${TEAMCITY_VOLUME:-.}/data:/data/teamcity_server/datadir
     depends_on:
       - teamcity-db
+    cpuset: ${CPUSET}
   teamcity-db:
-    image: 'postgres:${TEAMCITY_DB_IMAGE_VERSION:-latest}'
+    image: 'postgres:${TEAMCITY_DB_IMAGE_VERSION:-15}'
     restart: unless-stopped
     user: '${PUID:-1000}:${PGID:-100}'
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
       - 'POSTGRES_PASSWORD=${TEAMCITY_DB_PASSWORD:-postgres}'
-    ports:
-      - '5432:5432'
     volumes:
       - ${TEAMCITY_VOLUME:-.}/db/data:/var/lib/postgresql/data
   teamcity-agent:
