@@ -10,3 +10,27 @@ services:
     volumes:
       - ${TEAMCITY_VOLUME:-.}/logs:/opt/teamcity/logs
       - ${TEAMCITY_VOLUME:-.}/data:/data/teamcity_server/datadir
+    depends_on:
+      - postgres
+  teamcity-db:
+    image: 'postgres:${TEAMCITY_DB_IMAGE_VERSION:-latest}'
+    restart: unless-stopped
+    user: '${PUID:-1000}:${PGID:-100}'
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'POSTGRES_PASSWORD=${TEAMCITY_DB_PASSWORD:-postgres}'
+    volumes:
+      - ${TEAMCITY_VOLUME:-.}/db/data:/var/lib/postgresql/data
+  teamcity-agent:
+    image: 'jetbrains/teamcity-agent:${TEAMCITY_AGENT_IMAGE_VERSION:-latest}'
+    restart: unless-stopped
+    user: '${PUID:-1000}:${PGID:-100}'
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'SERVER_URL=${TEAMCITY_SERVER_URL:-http://teamcity:8111}'
+    volumes:
+      - ${TEAMCITY_VOLUME:-.}/agent/conf:/data/teamcity_agent/conf
+      - ${TEAMCITY_VOLUME:-.}/agent/work:/opt/buildagent/work
+      - ${TEAMCITY_VOLUME:-.}/agent/system:/opt/buildagent/system
+    depends_on:
+      - teamcity
