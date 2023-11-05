@@ -5,7 +5,7 @@ services:
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
     ports:
-      - '8000:8000'
+      - '9000:9000'
     volumes:
       - ${PORTAINER_VOLUME:-.}/data:/data
       - /var/run/docker.sock:/var/run/docker.sock
