@@ -19,6 +19,8 @@ services:
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
       - 'POSTGRES_PASSWORD=${TEAMCITY_DB_PASSWORD:-postgres}'
+    ports:
+      - '5432:5432'
     volumes:
       - ${TEAMCITY_VOLUME:-.}/db/data:/var/lib/postgresql/data
   teamcity-agent:
