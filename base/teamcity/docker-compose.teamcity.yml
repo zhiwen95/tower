@@ -22,6 +22,7 @@ services:
       - 'POSTGRES_PASSWORD=${TEAMCITY_DB_PASSWORD:-postgres}'
     volumes:
       - ${TEAMCITY_VOLUME:-.}/db/data:/var/lib/postgresql/data
+    cpuset: ${CPUSET}
   teamcity-agent:
     image: 'jetbrains/teamcity-agent:${TEAMCITY_AGENT_IMAGE_VERSION:-latest}'
     restart: unless-stopped
@@ -35,3 +36,4 @@ services:
       - ${TEAMCITY_VOLUME:-.}/agent/system:/opt/buildagent/system
     depends_on:
       - teamcity
+    cpuset: ${CPUSET}
