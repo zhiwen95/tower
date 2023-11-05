@@ -1,0 +1,14 @@
+services:
+  teamcity-agent:
+    image: 'jetbrains/teamcity-agent:${TEAMCITY_AGENT_IMAGE_VERSION:-latest}'
+    restart: unless-stopped
+    user: '${PUID:-1000}:${PGID:-100}'
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'SERVER_URL=${TEAMCITY_SERVER_URL:-http://teamcity:8111}'
+    ports:
+      - '8111:8111'
+    volumes:
+      - ${TEAMCITY_AGENT_VOLUME:-.}/conf:/data/teamcity_agent/conf
+      - ${TEAMCITY_AGENT_VOLUME:-.}/work:/opt/buildagent/work
+      - ${TEAMCITY_AGENT_VOLUME:-.}/system:/opt/buildagent/system

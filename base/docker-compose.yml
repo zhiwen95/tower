@@ -1,0 +1,4 @@
+include:
+  - path: 'postgres/docker-compose.postgres.yml'
+  - path: 'teamcity/docker-compose.teamcity.yml'
+  - path: 'teamcity-agent/docker-compose.teamcity-agent.yml'

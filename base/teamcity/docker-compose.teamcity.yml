@@ -1,0 +1,12 @@
+services:
+  teamcity:
+    image: 'jetbrains/teamcity-server:${TEAMCITY_IMAGE_VERSION:-latest}'
+    restart: unless-stopped
+    user: '${PUID:-1000}:${PGID:-100}'
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+    ports:
+      - '8111:8111'
+    volumes:
+      - ${TEAMCITY_VOLUME:-.}/logs:/opt/teamcity/logs
+      - ${TEAMCITY_VOLUME:-.}/data:/data/teamcity_server/datadir
