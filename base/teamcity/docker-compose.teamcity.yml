@@ -11,7 +11,7 @@ services:
       - ${TEAMCITY_VOLUME:-.}/logs:/opt/teamcity/logs
       - ${TEAMCITY_VOLUME:-.}/data:/data/teamcity_server/datadir
     depends_on:
-      - postgres
+      - teamcity-db
   teamcity-db:
     image: 'postgres:${TEAMCITY_DB_IMAGE_VERSION:-latest}'
     restart: unless-stopped
