@@ -1,0 +1,8 @@
+services:
+  iperf3:
+    image: 'networkstatic/iperf3:${IPERF3_IMAGE_VERSION:-latest}'
+    restart: unless-stopped
+    pid: host
+    command: -s
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'

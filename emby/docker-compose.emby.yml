@@ -1,0 +1,21 @@
+services:
+  emby:
+    image: 'linuxserver/emby:${EMBY_IMAGE_VERSION:-latest}'
+    restart: unless-stopped
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'PUID=${PUID:-1000}'
+      - 'PGID=${PGID:-100}'
+    ports:
+      - '8096:8096'
+    volumes:
+      - ${EMBY_VOLUME:-.}/conf:/config
+      - ${MEDIA_VOLUME:-/mnt/user/media}:/mnt/user/media
+    cpuset: ${CPUSET}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

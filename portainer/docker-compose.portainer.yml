@@ -1,0 +1,11 @@
+services:
+  portainer:
+    image: 'portainer/portainer-ce:${PORTAINER_IMAGE_VERSION:-latest}'
+    restart: unless-stopped
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+    ports:
+      - '8000:8000'
+    volumes:
+      - ${PORTAINER_VOLUME:-.}/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock

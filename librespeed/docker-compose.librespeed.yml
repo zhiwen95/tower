@@ -1,0 +1,14 @@
+services:
+  librespeed:
+    image: 'linuxserver/librespeed:${LIBRESPEED_IMAGE_VERSION:-latest}'
+    restart: unless-stopped
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'PUID=${PUID:-1000}'
+      - 'PGID=${PGID:-100}'
+      - 'PASSWORD=PASSWORD'
+    ports:
+      - '8888:80'
+    volumes:
+      - ${LIBRESPEED_VOLUME:-.}/conf:/config
+    cpuset: ${CPUSET}
