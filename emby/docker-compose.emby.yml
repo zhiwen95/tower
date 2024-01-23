@@ -16,6 +16,5 @@ services:
       resources:
         reservations:
           devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+            - capabilities: ["gpu"]
+              device_ids: ["${EMBY_GPU_ID}"]
