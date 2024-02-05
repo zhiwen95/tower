@@ -1,0 +1,13 @@
+services:
+  uptime-kuma:
+    image: 'louislam/uptime-kuma:${UPTIME_KUMA_VERSION:-1}'
+    restart: unless-stopped
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'PUID=${PUID:-1000}'
+      - 'PGID=${PGID:-100}'
+    ports:
+      - '3001:3001'
+    volumes:
+      - ${UPTIME_KUMA_VOLUME:-.}/data:/app/data
+    cpuset: ${CPUSET}

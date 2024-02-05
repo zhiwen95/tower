@@ -6,3 +6,4 @@ include:
   - path: 'portainer/docker-compose.portainer.yml'
   - path: 'nginx-proxy-manager/docker-compose.nginx-proxy-manager.yml'
   - path: 'flexget/docker-compose.flexget.yml'
+  - path: 'uptime-kuma/docker-compose.uptime-kuma.yml'
