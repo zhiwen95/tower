@@ -12,9 +12,3 @@ services:
       - ${OPEN_WEBUI_VOLUME:-.}/data:/app/backend/data
       - ${OPEN_WEBUI_VOLUME:-.}/ollama:/root/.ollama
     cpuset: ${CPUSET}
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [ "gpu" ]
-              device_ids: [ "${OPEN_WEBUI_GPU_ID}" ]
