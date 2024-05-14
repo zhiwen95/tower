@@ -7,3 +7,4 @@ include:
   - path: 'nginx-proxy-manager/docker-compose.nginx-proxy-manager.yml'
   - path: 'flexget/docker-compose.flexget.yml'
   - path: 'uptime-kuma/docker-compose.uptime-kuma.yml'
+  - path: 'open-webui/docker-compose.open-webui.yml'
