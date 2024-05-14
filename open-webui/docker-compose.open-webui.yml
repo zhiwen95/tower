@@ -7,7 +7,7 @@ services:
       - 'PUID=${PUID:-1000}'
       - 'PGID=${PGID:-100}'
     ports:
-      - '3000:8080'
+      - '3002:8080'
     volumes:
       - ${OPEN_WEBUI_VOLUME:-.}/data:/app/backend/data
       - ${OPEN_WEBUI_VOLUME:-.}/ollama:/root/.ollama
@@ -16,5 +16,5 @@ services:
       resources:
         reservations:
           devices:
-            - capabilities: ["gpu"]
-              device_ids: ["${OPEN_WEBUI_GPU_ID}"]
+            - capabilities: [ "gpu" ]
+              device_ids: [ "${OPEN_WEBUI_GPU_ID}" ]
