@@ -1,6 +1,6 @@
 services:
   open-webui:
-    image: 'ghcr.io/open-webui/open-webui:ollama:${OPEN_WEBUI_IMAGE_VERSION:-ollama}'
+    image: 'ghcr.io/open-webui/open-webui:${OPEN_WEBUI_IMAGE_VERSION:-ollama}'
     restart: unless-stopped
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
