@@ -1,0 +1,20 @@
+services:
+  emby:
+    image: 'ghcr.io/open-webui/open-webui:ollama:${OPEN_WEBUI_IMAGE_VERSION:-ollama}'
+    restart: unless-stopped
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'PUID=${PUID:-1000}'
+      - 'PGID=${PGID:-100}'
+    ports:
+      - '8096:8096'
+    volumes:
+      - ${OPEN_WEBUI_VOLUME:-.}/data:/app/backend/data
+      - ${OPEN_WEBUI_VOLUME:-.}/ollama:/root/.ollama
+    cpuset: ${CPUSET}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+              device_ids: ["${OPEN_WEBUI_GPU_ID}"]
