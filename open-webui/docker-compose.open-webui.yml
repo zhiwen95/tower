@@ -6,6 +6,8 @@ services:
       - 'TZ=${TZ:-Asia/Shanghai}'
       - 'PUID=${PUID:-1000}'
       - 'PGID=${PGID:-100}'
+      - 'OPENAI_API_BASE_URLS=${OPENAI_API_BASE_URLS}'
+      - 'OPENAI_API_KEYS=${OPENAI_API_BASE_URLS}'
     ports:
       - '3002:8080'
     volumes:
