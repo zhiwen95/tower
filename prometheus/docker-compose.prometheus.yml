@@ -1,0 +1,13 @@
+services:
+  prometheus:
+    image: 'prom/prometheus:${PROMETHEUS_IMAGE_VERSION:-latest}'
+    user: '${PUID:-1000}:${PGID:-100}'
+    restart: unless-stopped
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+    ports:
+      - '9090:9090'
+    volumes:
+      - ${PROMETHEUS_VOLUME:-.}/config:/etc/prometheus
+      - ${PROMETHEUS_VOLUME:-.}/data:/prometheus
+    cpuset: ${CPUSET}

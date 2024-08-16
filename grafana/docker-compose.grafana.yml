@@ -1,0 +1,12 @@
+services:
+  grafana:
+    image: 'grafana/grafana-enterprise:${GRAFANA_IMAGE_VERSION:-latest}'
+    user: '${PUID:-1000}:${PGID:-100}'
+    restart: unless-stopped
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+    ports:
+      - '3000:3000'
+    volumes:
+      - ${GRAFANA_VOLUME:-.}/data:/var/lib/grafana
+    cpuset: ${CPUSET}

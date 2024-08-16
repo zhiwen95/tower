@@ -7,3 +7,5 @@ include:
   - path: 'flexget/docker-compose.flexget.yml'
   - path: 'uptime-kuma/docker-compose.uptime-kuma.yml'
   - path: 'node-exporter/docker-compose.node-exporter.yml'
+  - path: 'prometheus/docker-compose.prometheus.yml'
+  - path: 'grafana/docker-compose.grafana.yml'
