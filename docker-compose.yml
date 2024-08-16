@@ -1,6 +1,5 @@
 include:
   - path: 'emby/docker-compose.emby.yml'
-  - path: 'netdata/docker-compose.netdata.yml'
   - path: 'iperf3/docker-compose.iperf3.yml'
   - path: 'librespeed/docker-compose.librespeed.yml'
   - path: 'portainer/docker-compose.portainer.yml'
