@@ -8,4 +8,3 @@ include:
   - path: 'uptime-kuma/docker-compose.uptime-kuma.yml'
   - path: 'prometheus/docker-compose.prometheus.yml'
   - path: 'grafana/docker-compose.grafana.yml'
-  - path: 'alertmanager/docker-compose.alertmanager.yml'
