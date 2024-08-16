@@ -9,4 +9,5 @@ services:
       - '3000:3000'
     volumes:
       - ${GRAFANA_VOLUME:-.}/data:/var/lib/grafana
+      - ${GRAFANA_VOLUME:-.}/config:/etc/grafana
     cpuset: ${CPUSET}
