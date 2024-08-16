@@ -1,0 +1,13 @@
+services:
+  node-exporter:
+    image: quay.io/prometheus/node-exporter:${NODE_EXPORTER_IMAGE_VERSION:-latest}
+    restart: unless-stopped
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+    command:
+      - '--path.rootfs=/host'
+    network_mode: host
+    pid: host
+    volumes:
+      - '/:/host:ro,rslave'
+    cpuset: ${CPUSET}
