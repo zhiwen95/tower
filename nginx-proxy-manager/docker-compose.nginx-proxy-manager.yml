@@ -1,7 +1,7 @@
 services:
   nginx-proxy-manager:
     image: 'jc21/nginx-proxy-manager:${NGINX_PROXY_MANAGER_IMAGE_VERSION:-latest}'
-    restart: unless-stopped
+    restart: always
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
       - 'PUID=${PUID:-1000}'

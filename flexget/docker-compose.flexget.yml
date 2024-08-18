@@ -1,7 +1,7 @@
 services:
   flexget:
     image: 'linuxserver/flexget:${FLEXGET_IMAGE_VERSION:-latest}'
-    restart: unless-stopped
+    restart: always
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
       - 'PUID=${PUID:-1000}'

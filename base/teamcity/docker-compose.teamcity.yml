@@ -1,7 +1,7 @@
 services:
   teamcity:
     image: 'jetbrains/teamcity-server:${TEAMCITY_IMAGE_VERSION:-latest}'
-    restart: unless-stopped
+    restart: always
     user: '${PUID:-1000}:${PGID:-100}'
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
@@ -15,7 +15,7 @@ services:
     cpuset: ${CPUSET}
   teamcity-db:
     image: 'postgres:${TEAMCITY_DB_IMAGE_VERSION:-15}'
-    restart: unless-stopped
+    restart: always
     user: '${PUID:-1000}:${PGID:-100}'
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
@@ -25,7 +25,7 @@ services:
     cpuset: ${CPUSET}
   teamcity-agent:
     image: 'jetbrains/teamcity-agent:${TEAMCITY_AGENT_IMAGE_VERSION:-latest}'
-    restart: unless-stopped
+    restart: always
     user: '${PUID:-1000}:${PGID:-100}'
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'

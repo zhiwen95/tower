@@ -1,7 +1,7 @@
 services:
   iperf3:
     image: 'networkstatic/iperf3:${IPERF3_IMAGE_VERSION:-latest}'
-    restart: unless-stopped
+    restart: always
     pid: host
     command: -s
     environment:

@@ -1,7 +1,7 @@
 services:
   portainer:
     image: 'portainer/portainer-ce:${PORTAINER_IMAGE_VERSION:-latest}'
-    restart: unless-stopped
+    restart: always
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
     ports:
