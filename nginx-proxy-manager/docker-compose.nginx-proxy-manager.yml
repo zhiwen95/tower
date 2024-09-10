@@ -7,9 +7,9 @@ services:
       - 'PUID=${PUID:-1000}'
       - 'PGID=${PGID:-100}'
     ports:
-      - '8080:80'
+      - '18080:80'
       - '8081:81'
-      - '8443:443'
+      - '18443:443'
     volumes:
       - ${NGINX_PROXY_MANAGER_VOLUME:-.}/data:/data
       - ${NGINX_PROXY_MANAGER_VOLUME:-.}/letsencrypt:/etc/letsencrypt
