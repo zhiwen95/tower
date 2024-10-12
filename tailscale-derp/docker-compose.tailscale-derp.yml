@@ -1,0 +1,10 @@
+services:
+  tailscale-derp:
+    image: 'yangchuansheng/ip_derper'
+    restart: always
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'PUID=${PUID:-1000}'
+      - 'PGID=${PGID:-100}'
+    network_mode: host
+    cpuset: ${CPUSET}
