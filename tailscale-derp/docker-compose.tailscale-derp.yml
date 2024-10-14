@@ -4,7 +4,7 @@ services:
     restart: always
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
-      - 'DERP_ADDR=12345'
+      - 'DERP_ADDR=:12345'
     ports:
       - '12345:12345'
       - '3478:3478/udp'
