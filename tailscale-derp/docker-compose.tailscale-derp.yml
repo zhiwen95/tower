@@ -5,6 +5,6 @@ services:
     environment:
       - 'TZ=${TZ:-Asia/Shanghai}'
     ports:
-      - '12345:80'
+      - '12345:443'
       - '3478:3478/udp'
     cpuset: ${CPUSET}
