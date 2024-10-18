@@ -6,7 +6,7 @@ Tailscale 官方 DERP 节点都在国外，中转流量时就会很卡，自建�
 
 1. 按照 docker-compose.tailscale-derp.yml 启动
 2. 端口转发
-* 家庭场景：路由器设置端口转发，转发 12345/tcp 3478/udp
+* 家庭场景：路由器设置端口转发 12345/tcp 3478/udp
 * 服务器场景：设置防火墙，允许 12345/tcp 3478/udp 通过
 3. 修改 tailscale 访问控制
    在 https://login.tailscale.com/admin/acls/file 增加 derpMap 配置
