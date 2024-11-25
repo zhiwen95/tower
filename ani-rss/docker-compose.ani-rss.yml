@@ -1,0 +1,15 @@
+services:
+  ani-rss:
+    image: wushuo894/ani-rss:${ANI_RSS_IMAGE_VERSION:-latest}
+    restart: always
+    environment:
+      - 'TZ=${TZ:-Asia/Shanghai}'
+      - 'PUID=${PUID:-1000}'
+      - 'PGID=${PGID:-100}'
+      - PORT=7789
+      - CONFIG=/config
+    volumes:
+      - '${ANI_RSS_VOLUME:-.}/conf:/config'
+      - ${MEDIA_VOLUME:-/mnt/user/media}:/mnt/user/media
+    ports:
+      - 7789:7789

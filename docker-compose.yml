@@ -9,3 +9,4 @@ include:
   - path: 'prometheus/docker-compose.prometheus.yml'
   - path: 'grafana/docker-compose.grafana.yml'
   - path: 'tailscale-derp/docker-compose.tailscale-derp.yml'
+  - path: 'ani-rss/docker-compose.ani-rss.yml'
